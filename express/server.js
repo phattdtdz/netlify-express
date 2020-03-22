@@ -6,7 +6,7 @@ const path = require('path');
 const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
-
+var arrObj = new Array();
 const router = express.Router();
 router.get('/', (req, res) => {
   res.send(arrObj);
@@ -23,7 +23,7 @@ module.exports = app;
 module.exports.handler = serverless(app);
 
 const port = 3000;
-var arrObj = new Array();
+
 const URL = 'https://www.worldometers.info/coronavirus/';
 
 
@@ -39,7 +39,7 @@ res.send(arrObj);
 });
 
 
-var getData =setTimeout(() => {
+setTimeout(() => {
  Request(URL, function (err, res, body) {
     if (err) {
         console.log("error");
